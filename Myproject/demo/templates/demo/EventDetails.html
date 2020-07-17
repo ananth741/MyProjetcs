@@ -1,0 +1,102 @@
+{% extends "demo/Navigation bar.html" %}
+
+{% block body %}
+
+<!-- Main Body Start -->
+    <div class="w3-main " style="margin-left: 200px; margin-right: 20px">
+
+        <div class=" w3-padding-48 ">
+            <h1 class="w3-xxxlarge w3-text-green w3-padding-left-36"><b>Event Details </b></h1>
+            <hr style="width: 450px; border: 5px solid teal; margin-right: auto; " class="w3-round w3-padding-left-36">
+        </div>
+
+        <form action="/action_page.php">
+
+            <div class="w3-half  w3-padding-left-36 w3-text-teal">
+
+
+
+                <table class="w3-table w3-large b">
+
+                    <tr>
+                        <td>  Event ID </td>
+                        <td class="w3-text-black">  {{ event.id }}  </td>
+                    </tr>
+                    <tr>
+                        <td>  First Name  </td>
+                        <td class="w3-text-black">  {{ event.First_Name }}  </td>
+                    </tr>
+
+                    <tr>
+                        <td>Last Name </td>
+                        <td class="w3-text-black">{{ event.Last_Name }} </td>
+                    </tr>
+
+                    <tr>
+                        <td> Email </td>
+                        <td class="w3-text-black"> {{ event.Email }}   </td>
+                    </tr>
+
+                    <tr>
+                        <td>Phone </td>
+                        <td class="w3-text-black"> {{ event.Phone }}   </td>
+                    </tr>
+
+                    <tr>
+                        <td>Location </td>
+                        <td class="w3-text-black"> {{ event.Location }} </td>
+                    </tr>
+
+                    <tr>
+                        <td>City</td>
+                        <td class="w3-text-black"> {{ event.City }}  </td>
+                    </tr>
+
+                </table>
+
+
+
+            </div>
+
+            <div class="w3-half  w3-padding-left-36 w3-text-teal">
+
+
+
+                <table class="w3-table w3-large  b">
+
+                    <tr>
+                        <td> Occasion</td>
+                        <td class="w3-text-black"> {{ event.Occation }} </td>
+                    </tr>
+
+                    <tr>
+                        <td> Event Style </td>
+                        <td class="w3-text-black"> {{ event.Event_Style }} </td>
+                    </tr>
+
+                    <tr>
+                        <td> Event Date</td>
+                        <td class="w3-text-black"> {{ event.Event_Date }}  </td>
+                    </tr>
+
+                    <tr>
+                        <td> Menu ID</td>
+                        <td class="w3-text-black"> <a href="menudetails{{ event.Menu_Id }}"> {{ event.Menu_Id }} </a>  </td>
+                    </tr>
+
+                    <tr>
+                        <td> Event Choice</td>
+                        <td class="w3-text-black"> {{ event.Event_Choice }} </td>
+                    </tr>
+
+                </table>
+
+
+
+            </div>
+
+        </form>
+    </div>
+<!-- Main Body End -->
+
+{% endblock %}

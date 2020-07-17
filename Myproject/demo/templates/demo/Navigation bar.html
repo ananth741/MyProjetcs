@@ -1,0 +1,204 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/StyleSheet1.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <title>Gayatri Catering Services</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+         #checkboxes_st{
+            display:none;
+
+        }
+        #checkboxes_ma {
+            display: none;
+        }
+        #checkboxes_de {
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+
+    
+    <!-- Left hanbd side menu -->
+    <nav class="w3-sidebar w3-cust1 w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:200px;font-weight:bold;" id="mySidebar">
+        <br>
+        <!--<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>-->
+
+        <div >
+            <a href="home">
+                <img src="http://www.gayathricatering.in/wp-content/uploads/2019/06/cropped-gayathrilogo-3.jpg" style="width:110%" alt="Gayatri welcomes">
+            </a>
+        </div>
+        <div class="w3-bar-block w3-padding-48">
+            <!--Home Menu-->
+            <a href="home" onclick="w3_close()" class="w3-bar-item  w3-button w3-hover-green fa fa-fw fa-home " style='font-size:36px'></a>
+            <!--Event Menu-->
+            <div class="w3-dropdown-hover ">
+                <a  onclick="w3_close()" class="w3-bar-item w3-button w3-hover-green  fas fa-calendar-alt" style='font-size:36px'></a>
+
+                <div class="w3-dropdown-content ">
+                    <a href="eventslist" class="w3-bar-item w3-button w3-hover-green " style='font-size:15px'>Events</a>
+                    <a href="newevent" class="w3-bar-item w3-button w3-hover-green " style='font-size:15px'>Create Evennt</a>
+                    <!--<a href="eventdetails" class="w3-bar-item w3-button w3-hover-green " style='font-size:15px'>View Event Details</a>-->
+                </div>
+            </div>
+                        
+
+            <!--Inbox Messages-->
+            <a href="messages" onclick="w3_close()" class="w3-bar-item w3-button  w3-hover-green fas fa-envelope" style='font-size:36px'></a>
+
+            <!--Menus and Items-->
+
+            <div class="w3-dropdown-hover ">                
+                <a  onclick="w3_close()" class="w3-bar-item w3-button  w3-hover-green far fas fa-edit " style='font-size:36px'></a>
+
+                <div class="w3-dropdown-content ">
+                    <a href="menulist" class="w3-bar-item w3-button w3-hover-green " style='font-size:15px'>Menus</a>
+                    <a href="newmenu" class="w3-bar-item w3-button w3-hover-green " style='font-size:15px'>Create Menu</a>
+                    <!--<a href="menudetails" class="w3-bar-item w3-button w3-hover-green " style='font-size:15px'>View Menu Details</a>-->
+                </div>
+            </div>
+            
+            <!-- Contact us -->
+            <a href="contact" onclick="w3_close()" class="w3-bar-item w3-button  w3-hover-green far fa-address-card" style='font-size:36px' ></a>
+
+            <!-- Logout -->
+            <a href="logout" onclick="w3_close()" class="w3-bar-item w3-button  w3-hover-green fas fa-sign-out-alt" style='font-size:36px' ></a>
+        </div>
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header class="w3-container w3-top w3-hide-large w3-cust1 w3-xlarge w3-padding">
+        <a href="javascript:void(0)" class="w3-button w3-cust1 w3-margin-right" onclick="w3_open()">☰</a>
+        <span class="w3-text-green">Gayatri Catering Services</span>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class=" w3-overlay w3-display-topleft w3-hide-large" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+
+    <!-- Main Body Start --> 
+    {% block body %}
+    {% endblock %}
+    <!-- Main Body End -->
+
+    <script>
+
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        var myIndex = 0;
+        carousel();
+
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 6000); // Change image every 6 seconds
+        }
+
+         var st_expanded = false;
+        var ma_expanded = false;
+        var de_expanded = false;
+        function starter_oncick_checkbox() {
+
+            var checkboxes = document.getElementById("checkboxes_st");
+
+            if (!st_expanded) {
+                checkboxes.style.display = "block";
+                st_expanded = true;
+            }else {
+                checkboxes.style.display = "none";
+                st_expanded = false;
+            }
+
+        }
+
+        function main_oncick_checkbox() {
+
+            var checkboxes = document.getElementById("checkboxes_ma");
+
+            if (!ma_expanded) {
+                checkboxes.style.display = "block";
+                ma_expanded = true;
+            } else {
+                checkboxes.style.display = "none";
+                ma_expanded = false;
+            }
+
+        }
+
+        function desert_oncick_checkbox() {
+
+            var checkboxes = document.getElementById("checkboxes_de");
+
+            if (!de_expanded) {
+                checkboxes.style.display = "block";
+                de_expanded = true;
+            } else {
+                checkboxes.style.display = "none";
+                de_expanded = false;
+            }
+
+        }
+
+
+    </script>
+        
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+﻿{% extends "demo/Navigation bar.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Main Body Start -->
+    <div class="w3-main " style="margin-left: 200px; margin-right: 20px">
+
+        <div class=" w3-padding-48 ">
+            <h1 class="w3-xxxlarge w3-text-green w3-padding-left-36"><b>New Menu </b></h1>
+            <hr style="width: 450px; border: 5px solid teal; margin-right: auto; " class="w3-round w3-padding-left-36">
+        </div>
+
+        <form action="{% url 'book_menu' %}"  method="post">
+            {% csrf_token %}
+            <div class="w3-half  w3-padding-left-36 w3-text-teal">
+                <table class="w3-table w3-large b">
+
+                    <tr>
+                        <td>
+                            Menu Name
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Name " id="menuname" name="menuname" style="width:300px" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Category
+                        </td>
+                        <td>
+                            <select name="m_category" id="m_category" style="width:300px" required>
+                                <option>Classic</option>
+                                <option>Basic</option>
+                                <option>Authentic</option>
+                                <option>Luxury</option>
+                                <option>Other</option>
+                            </select>
+                        </td>
+
+                     </tr>
+                    <tr>
+                        <td>
+                            Type
+                        </td>
+                        <td>
+                            <select name="m_type" id="m_type" style="width:300px" required>
+                                <option>South Indian</option>
+                                <option>North Indian</option>
+                                <option>Continental</option>
+                                <option>Mexican</option>
+                                <option>Italian</option>
+                                <option>Asian</option>
+                                <option>English Breakfast</option>
+                                <option>Others</option>
+                            </select>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Time
+                        </td>
+                        <td>
+                            <select name="m_time" id="m_time" style="width:300px" required>
+                                <option>06:00 AM - 08:00 AM</option>
+                                <option>06:00 AM - 10:00 AM</option>
+                                <option>08:00 AM - 10:00 AM</option>
+                                <option>12:00 PM - 02:00 PM</option>
+                                <option>12:00 PM - 04:00 PM</option>
+                                <option>02:00 PM - 04:00 PM</option>
+                                <option>07:00 PM - 10:00 PM</option>
+                                <option>08:00 PM - 11:00 PM</option>
+                                <option>09:00 PM - 12:00 PM</option>
+                                <option>Others</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Veg/Non-Veg
+                        </td>
+                        <td>
+                            <select name="m_veg" id="m_veg" style="width:300px" required>
+                                <option>Veg</option>
+                                <option>Non-Veg</option>
+                                <option>Not Applicable</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Starters
+                        </td>
+                        <td >
+                            <div onclick="starter_oncick_checkbox()">
+                                <select style="width:300px">
+                                    <option>Starters List</option>
+                                </select>
+                            </div>
+                            <div id="checkboxes_st" >
+                               {% for starter in starters %}
+                                   <input type="checkbox" id="Kebab" name={{ starter.id }}  >{{ starter.Name }} <br>
+                               {% endfor %}
+                            </div>
+                       </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Main Menu
+                        </td>
+                        <td>
+                            <div onclick="main_oncick_checkbox()">
+                                <select style="width:300px">
+                                    <option>Main Menu</option>
+                                </select>
+                            </div>
+                            <div id="checkboxes_ma">
+                                {% for main_menu in main_menus %}
+                                <input type="checkbox" id="elunch" name={{ main_menu.id }}  > {{ main_menu.Name }} <br>
+                                {% endfor %}
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Desserts
+                        </td>
+                        <td>
+                            <div onclick="desert_oncick_checkbox()">
+                                <select style="width:300px">
+                                    <option>Deserts List</option>
+                                </select>
+                            </div>
+                            <div id="checkboxes_de">
+                                 {% for dessert in desserts %}
+                                <input type="checkbox" id="elunch" name={{ dessert.id }}  > {{ dessert.Name }} <br>
+
+                                {% endfor %}
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                        </td>
+
+                        <td>
+                            <button class="w3-button w3-teal  " type="submit">Submit</button>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+
+        </form>
+
+
+    </div>
+<!-- Main Body End -->
+
+{% endblock %}

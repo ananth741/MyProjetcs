@@ -1,0 +1,66 @@
+{% extends "demo/Navigation bar.html" %}
+{% load static %}
+
+{% block body %}
+ <!-- Main Body Start -->
+
+  <!-- Contact -->
+<div class="w3-main " style="margin-left: 200px; margin-right: 20px">
+    <div class="w3-container w3-padding-48 " id="contact">
+                <h1 class="w3-xxxlarge w3-text-teal"><b>Contact Us</b></h1>
+                <hr style="width: 250px; border: 5px solid teal; margin-right:auto " class="w3-round">
+                <div class="w3-row">
+                    <div class="w3-col m5">
+                        <h3>Gayatri Catering Services</h3>
+                        <p>
+                            #13-6-445, Crystal Garens,
+                            Konjeti Enclave, Ringroad,
+                            Mehdipatnam, Hyderbad - 500 028.
+                        </p>
+                        <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>  Telangana, India</p>
+                        <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>  040-23524823 <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 040-23522968</p>
+                        <p>
+                            <i class="fa fa-phone w3-text-teal w3-xlarge"></i>  +91 &nbsp;9848035911
+                            <a target="_blank" href="https://api.whatsapp.com/send?phone=919848035911&text=" class="img-icon-a nofocus">
+                                <img class="img-icon ccw-analytics" id="style-9" data-ccw="style-9" style="height: 48px;" src="http://www.gayathricatering.in/wp-content/plugins/click-to-chat-for-whatsapp/./prev/assets/img/whatsapp-icon-square.svg" alt="WhatsApp chat">
+                            </a>
+                        </p>
+                        <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>  info@gayathricaterers.in <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gayathricaterers09@gmail.com </p>
+                    </div>
+                    <div class="w3-col m7">
+                        <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="{% url 'message' %}"  method="post" >
+                             {% csrf_token %}
+                            <div class="w3-section">
+                                <label>Name</label>
+                                <input class="w3-input" type="text" name="Name" required>
+                            </div>
+                            <div class="w3-section">
+                                <label>Email</label>
+                                <input class="w3-input" type="text" name="Email" required>
+                            </div>
+                            <div class="w3-section">
+                                <label>Message</label>
+                                <input class="w3-input" type="text" name="Message" required>
+                            </div>
+                            <input class="w3-check" type="checkbox" checked name="Like">
+                            <label>I Like it!</label>
+                            <button type="submit" class="w3-button w3-right w3-theme">Send</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+</div>
+  <!-- Footer -->
+    <footer class="w3-container w3-padding-32  w3-center">
+                <h4>Follow Us</h4>
+                <a class="w3-button w3-large w3-teal" href="https://www.facebook.com/Gayathri-Catering-1338785942950671/" target="blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-google-plus"></i></a>
+                <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-instagram"></i></a>
+                <a class="w3-button w3-large w3-teal w3-hide-small" href="javascript:void(0)" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                <p>Powered by <a href="https://Google.com" target="_blank">Ananth</a></p>
+
+            </footer>
+<!-- Main Body End -->
+{% endblock %}

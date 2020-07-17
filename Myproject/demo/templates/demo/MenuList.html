@@ -1,0 +1,43 @@
+{% extends "demo/Navigation bar.html" %}
+{% load static %}
+
+{% block body %}
+
+ <!-- Main Body Start -->
+       <div class="w3-main " style="margin-left: 200px; margin-right: 20px">
+
+        <div class=" w3-padding-48 ">
+            <h1 class="w3-xxxlarge w3-text-green w3-padding-left-36"><b>Menu List </b></h1>
+            <hr style="width: 450px; border: 5px solid teal; margin-right: auto; " class="w3-round w3-padding-left-36">
+        </div>
+
+        <form action="/action_page.php">
+            <div class="w3-padding-left-36 w3-text-teal">
+                <table class ="w3-table w3-large b">
+                    <tr>
+                        <th>Menu ID</th>
+                        <th>Menu Name</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Time</th>
+                        <th>Veg/Non-Veg</th>
+
+                    </tr>
+                    {% for msg in msgs %}
+                    <tr>
+                          <td> <a href="menudetails{{ menu.id }}"> {{ menu.id }} </a> </td>
+                          <td>{{ menu.Menu_Name }} </td>
+                          <td>{{ menu.Category }}</td>
+                          <td>{{ menu.Type }}</td>
+                          <td>{{ menu.Time }}</td>
+                          <td>{{ menu.Veg_Nonveg }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+        </form>
+</div>
+ <!-- Main Body End -->
+
+{% endblock %}

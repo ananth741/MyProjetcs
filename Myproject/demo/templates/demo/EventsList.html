@@ -1,0 +1,42 @@
+{% extends "demo/Navigation bar.html" %}
+
+{% block body %}
+ <!-- Main Body Start -->
+    <div class="w3-main " style="margin-left: 200px; margin-right: 20px">
+
+        <div class=" w3-padding-48 ">
+            <h1 class="w3-xxxlarge w3-text-green w3-padding-left-36"><b>Events List </b></h1>
+            <hr style="width: 450px; border: 5px solid teal; margin-right: auto; " class="w3-round w3-padding-left-36">
+        </div>
+
+        <form action="/action_page.php">
+            <div class="w3-padding-left-36 w3-text-teal">
+                <table class ="w3-table w3-large b">
+                    <tr>
+                        <th>Event ID</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Phone</th>
+                        <th>Event Date</th>
+                        <th>Menu Id</th>
+
+                    </tr>
+                    {% for event in events %}
+                    <tr>
+                          <td> <a href="eventdetails{{ event.id }}"> {{ event.id }} </a> </td>
+                          <td>{{ event.First_Name }} {{ event.Last_Name }}</td>
+                          <td>{{ event.Location }}</td>
+                          <td>{{ event.City }}</td>
+                          <td>{{ event.Phone }}</td>
+                          <td>{{ event.Event_Date }}</td>
+                          <td> <a href="menudetails{{ event.Menu_Id }}"> {{ event.Menu_Id }} </a> </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+        </form>
+</div>
+<!-- Main Body End -->
+{% endblock %}

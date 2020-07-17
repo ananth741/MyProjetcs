@@ -1,0 +1,73 @@
+﻿{% extends "demo/Navigation bar.html" %}
+{% load static %}
+
+{% block body %}
+
+ <!-- Main Body Start -->
+
+    <div class="w3-main " style="margin-left: 200px; margin-right: 20px">
+
+        <div class=" w3-padding-48 ">
+            <h1 class="w3-xxxlarge w3-text-green w3-padding-left-36"><b>Menu Details </b></h1>
+            <hr style="width: 450px; border: 5px solid teal; margin-right: auto; " class="w3-round w3-padding-left-36">
+        </div>
+
+        <form action="/action_page.php">
+
+            <div class="w3-half  w3-padding-left-36 w3-text-teal">
+
+
+
+                <table class="w3-table w3-large b">
+
+                    <tr>
+                        <td>  Menu ID </td>
+                        <td class="w3-text-black">  {{ menu.id }}  </td>
+                    </tr>
+                    <tr>
+                        <td>  Menu Name </td>
+                        <td class="w3-text-black">  {{ menu.Menu_Name }}  </td>
+                    </tr>
+                    <tr>
+                        <td>  Category </td>
+                        <td class="w3-text-black">  {{ menu.Category }}  </td>
+                    </tr>
+                    <tr>
+                        <td>  Type </td>
+                        <td class="w3-text-black">  {{ menu.Type }}  </td>
+                    </tr>
+                    <tr>
+                        <td>  Time </td>
+                        <td class="w3-text-black">  {{ menu.Time }}  </td>
+                    </tr>
+                    <tr>
+                        <td>  Veg/Non-Veg </td>
+                        <td class="w3-text-black">  {{ menu.Veg_Nonveg }}  </td>
+                    </tr>
+                    <tr>
+                        <td>  Starters   </td>
+                        <td class="w3-text-black">  {{ menu.Starters }}  </td>
+                    </tr>
+
+                    <tr>
+                        <td>Main Menu </td>
+                        <td class="w3-text-black">{{ menu.Main_Menu }}</td>
+                    </tr>
+
+                    <tr>
+                        <td> Dessert </td>
+                        <td class="w3-text-black"> {{ menu.Dessert }} </td>
+                    </tr>                    
+
+                </table>
+
+
+
+            </div>
+            
+        </form>
+    </div>
+
+ <!-- Main Body End -->
+
+{% endblock %}

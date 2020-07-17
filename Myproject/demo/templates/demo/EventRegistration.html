@@ -1,0 +1,162 @@
+{% extends "demo/Navigation bar.html" %}
+
+
+{% block body %}
+ <!-- Main Body Start -->
+    <div class="w3-main " style="margin-left: 200px; margin-right: 20px">
+
+        <div class=" w3-padding-48 ">
+            <h1 class="w3-xxxlarge w3-text-green w3-padding-left-36"><b>Event Registration </b></h1>
+            <hr style="width: 450px; border: 5px solid teal; margin-right: auto; " class="w3-round w3-padding-left-36">
+        </div>
+
+        <form autocomplete="on" action= "{% url 'book' %}"  method="post">
+            {% csrf_token %}
+            <div class="w3-half  w3-padding-left-36 w3-text-teal">
+                <table class="w3-table w3-large b">
+
+                    <tr>
+                        <td>
+                            First Name
+                        </td>
+                        <td>
+                            <input type="text" placeholder="First Name" id="fname" name="fname" required style="width:200px">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Last Name
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Last Name" id="lname" name="lname" required style="width:200px">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            <input type="email" placeholder="abcd@gmail.com" id="email" name="email" required style="width:200px">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            <input type="text" placeholder="+91 9832******" id="ephone" name="ephone" required style="width:200px">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Location
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Gachhibowli" id="elocation" name="elocation" required style="width:200px">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            City
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Hyderabad" id="ecity" name="ecity" required style="width:200px">
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="w3-half  w3-padding-left-36 w3-text-teal">
+                <table class="w3-table w3-large  b">
+
+                    <tr>
+                        <td>
+                            Occasion
+                        </td>
+                        <td>
+                            <select name="Occasion" id="Occasion" style="width:200px">
+                                <option>Wedding         </option>
+                                <option>Engagement      </option>
+                                <option>House events    </option>
+                                <option>Corporate Event </option>
+                                <option>Birthday        </option>
+                                <option>Anniversary     </option>
+                                <option>Others</option>
+                            </select >
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Event Style
+                        </td>
+                        <td>
+                            <select name="style" id="style" style="width:200px">
+                                <option>South Indian        </option>
+                                <option>North Indian        </option>
+                                <option>Telugu Tradation    </option>
+                                <option>Tamil Tradation     </option>
+                                <option>Karnataka Tradation </option>
+                                <option>Gujarathi Tradation </option>
+                                <option>Rajastani Tradation </option>
+                                <option>Others</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Event Date
+                        </td>
+                        <td>
+                            <input type="date" placeholder="31/12/2019" id="edate" name="edate" required style="width:200px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Menu ID
+                        </td>
+                        <td>
+                            <select name="Menu" id="Menu" style="width:200px">
+                                <option></option>
+                                {% for Menu in Menus %}
+                                <option>{{Menu.id}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Event Choice
+                        </td>
+                        <td>
+                           <input type="checkbox"  id="ebreakfast" name="ebreakfast" > Breakfast <br>
+                           <input type="checkbox"  id="elunch" name="elunch" > Lunch <br>
+                           <input type="checkbox"  id="edinner" name="edinner" > Dinner <br>
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <button class="w3-button w3-teal  " type="submit" >Submit</button>
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+
+        </form>
+    </div>
+
+<!-- Main Body End -->
+{% endblock %}
